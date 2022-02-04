@@ -30,6 +30,96 @@
 
 {{> comments post.comments}}
 
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+      <th scope="col">Height</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Calories/Day</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>6'0</td>
+      <td>200</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td>5'11</td>
+      <td>180</td>
+      <td>2800</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+      <td>5'4</td>
+      <td>130</td>
+      <td>2000</td>
+    </tr>
+      <tr>
+      <th scope="row">4</th>
+      <td>Lebron</td>
+      <td>James</td>
+      <td>@twitter</td>
+      <td>6'7</td>
+      <td>250</td>
+      <td>4500</td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <canvas id="lineChart"></canvas>
+</div>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <script>
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Weight (lbs)',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+</script>
+<script>
+  const myChart = new Chart(
+    document.getElementById('lineChart'),
+    config
+  );
+</script>
+ 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
 <script src="/javascript/comment.js"></script>
