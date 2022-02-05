@@ -3,33 +3,30 @@
 
   <form class="new-post-form">
     <div>
-      <label for="post-title">Workout</label>
-      <input type="text" id="post-title" name="post-title" />
+      <label for="workout">Workout</label>
+      <input type="text" id="workout" name="workout" />
     </div>
     <div>
-      <label for="post-url">Meal 1</label>
-      <input id="post-url" name="post-url" />
+      <label for="mealone">Meal 1</label>
+      <input id="mealone" name="mealone" />
     </div>
     <div>
-      <label for="post-url">Meal 2</label>
-      <input id="post-url" name="post-url" />
+      <label for="mealtwo">Meal 2</label>
+      <input id="mealtwo" name="mealtwo" />
     </div>
-    <label for="post-url">Meal 3</label>
-    <input id="post-url" name="post-url" />
+    <label for="mealthree">Meal 3</label>
+    <input id="mealthree" name="mealthree" />
     </div>
     </div>
-    <label for="post-url">Desserts/Snacks</label>
-    <input id="post-url" name="post-url" />
+    <label for="dessert">Desserts/Snacks</label>
+    <input id="dessert" name="dessert" />
     </div>
-   <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
+
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Daily Log</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <textarea class="form-control" id="exampleFormControlTextarea1" name="dailylog" rows="3"></textarea>
 </div>
-    <button type="submit" class="btn">Create</button>
+    <button type="submit" class="btn make-post-form">Create</button> 
 
   </form>
 </section>
@@ -41,7 +38,16 @@
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>  
+      <label>{{post.created_at}}</label>
+      <label>{{post.id}}</label>
+      <label>{{post.post_url}}</label>
+      <label>{{post.title}}</label>
+      <label>{{post.dinner}}</label>
+    
+      
+
     </li>
     {{/each}}
   </ol>
@@ -86,9 +92,12 @@
     }
   });
 </script>
-<label>find calories</label><br>
+<label>Calorie Counter</label><br>
 <input type="text" id="myText"><br>
 <button type="button" id="myButton">submit</button> 
+<h3 id="calories">Amount Of Calories</h3> 
 
+<script src="/javascript/edit-post.js"></script>
 <script src="/javascript/add-post.js"></script>
 <script type="module" src="/javascript/api.js"></script>
+
