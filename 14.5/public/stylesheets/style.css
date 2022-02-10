@@ -8,6 +8,10 @@ body, html {
   margin: 0;
   font-family: sans-serif;
   color: #333;
+  background-image: url('https://img.freepik.com/free-vector/blue-pink-halftone-background_53876-99004.jpg?size=626&ext=jpg&ga=GA1.2.1483490050.1637884800');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 a {

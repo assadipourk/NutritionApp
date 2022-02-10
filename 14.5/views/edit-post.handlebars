@@ -5,8 +5,8 @@
   </h2>
   <form class="edit-post-form">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
+      <input name="post-workout" type="text" value="{{post.workout}}" />
+      <span>({{post.breakfast}})</span>
     </div>
     <div>
       {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
@@ -41,44 +41,14 @@
       <th scope="col">Weight</th>
       <th scope="col">Calories/Day</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>6'0</td>
-      <td>200</td>
-      <td>3000</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>5'11</td>
-      <td>180</td>
-      <td>2800</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>5'4</td>
-      <td>130</td>
-      <td>2000</td>
-    </tr>
       <tr>
       <th scope="row">4</th>
-      <td>Lebron</td>
-      <td>James</td>
+      <td>Kamyar</td>
+      <td>Assadipour</td>
       <td>assadipourk@gmail.com</td>
       <td>6'7</td>
-      <td>250</td>
-      <td>4500</td>
+      <td>165</td>
+      <td>3000</td>
     </tr>
   </tbody>
 </table>
@@ -103,7 +73,7 @@
       label: 'Weight (lbs)',
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
+      data: [159, 163, 161, 167, 162, 165, 168],
     }]
   };
 

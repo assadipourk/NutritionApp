@@ -3,51 +3,47 @@
 
   <form class="new-post-form">
     <div>
-      <label for="workout">Workout</label>
+      <label for="workout"><strong>Workout</strong></label>
       <input type="text" id="workout" name="workout" />
     </div>
     <div>
-      <label for="mealone">Meal 1</label>
-      <input id="mealone" name="mealone" />
+      <label for="breakfast"><strong>Breakfast</strong></label>
+      <input id="breakfast" name="breakfast" />
     </div>
     <div>
-      <label for="mealtwo">Meal 2</label>
-      <input id="mealtwo" name="mealtwo" />
+      <label for="lunch"><strong>Lunch</strong></label>
+      <input id="lunch" name="lunch" />
     </div>
-    <label for="mealthree">Meal 3</label>
-    <input id="mealthree" name="mealthree" />
+    <div>
+      <label for="dinner"><strong>Dinner</strong></label>
+      <input id="dinner" name="dinner" />
     </div>
+    <div>
+      <label for="dessert"><strong>Desserts/Snacks</strong></label>
+      <input id="dessert" name="dessert" />
     </div>
-    <label for="dessert">Desserts/Snacks</label>
-    <input id="dessert" name="dessert" />
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"><strong>Daily Log</strong></label>
+      <textarea class="form-control" id="dailylog" name="dailylog" rows="3"></textarea>
     </div>
-
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Daily Log</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" name="dailylog" rows="3"></textarea>
-</div>
-    <button type="submit" class="btn make-post-form">Create</button> 
-
+    <button type="submit" class="btn">Create</button>
   </form>
 </section>
 
-{{#if posts.length}}
+{{#if posts}}
 <section>
   <h2>Your Logs</h2>
   <ol>
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>  
-      <label>{{post.created_at}}</label>
-      <label>{{post.id}}</label>
-      <label>{{post.post_url}}</label>
-      <label>{{post.title}}</label>
-      <label>{{post.dinner}}</label>
-    
-      
-
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <ol> <strong>Workout - </strong>{{post.workout}}</ol>
+      <ol> <strong>Breakfast - </strong>{{post.breakfast}}</ol>
+      <ol> <strong>Lunch - </strong>{{post.lunch}}</ol>
+      <ol> <strong>Dinner - </strong>{{post.dinner}}</ol>
+      <ol> <strong>Dessert and Snacks - </strong>{{post.dessert}}</ol>
+      <ol> <strong>Daily Notes - </strong>{{post.dailylog}}</ol>
     </li>
     {{/each}}
   </ol>
@@ -63,7 +59,7 @@
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       datasets: [{
         label: '# of Calories',
-        data: [1600, 2000, 2500, 1800, 2000, 2800, 3750],
+        data: [3000, 3500, 2900, 3200, 3800, 3500, 3750],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -92,12 +88,9 @@
     }
   });
 </script>
-<label>Calorie Counter</label><br>
+<label>find calories</label><br>
 <input type="text" id="myText"><br>
-<button type="button" id="myButton">submit</button> 
-<h3 id="calories">Amount Of Calories</h3> 
+<button type="button" id="myButton">submit</button>
 
-<script src="/javascript/edit-post.js"></script>
 <script src="/javascript/add-post.js"></script>
 <script type="module" src="/javascript/api.js"></script>
-

@@ -9,9 +9,13 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
-      'title',
+      'breakfast',
+      'workout',
       'created_at',
+      'lunch',
+      'dinner',
+      'dessert',
+      'dailylog',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
@@ -43,9 +47,13 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
-      'title',
+      'breakfast',
+      'workout',
       'created_at',
+      'lunch',
+      'dinner',
+      'dessert',
+      'dailylog',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
@@ -77,13 +85,16 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    console.log(req.body);
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
-    title: req.body.title,
-    post_url: req.body.post_url,
-    dinner: req.body.mealthree,
-    user_id: req.session.user_id,
+    workout: req.body.workout,
+    breakfast: req.body.breakfast,
+    lunch: req.body.lunch,
+    dinner: req.body.dinner,
+    dessert: req.body.dessert,
+    dailylog: req.body.dailylog,
+
+    user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -105,7 +116,8 @@ router.put('/upvote', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      workout: req.body.workout
+
     },
     {
       where: {
@@ -127,7 +139,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
-      console.log('id', req.params.id);
+  console.log('id', req.params.id);
   Post.destroy({
     where: {
       id: req.params.id
@@ -147,3 +159,4 @@ router.delete('/:id', withAuth, (req, res) => {
 });
 
 module.exports = router;
+

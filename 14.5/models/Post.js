@@ -21,7 +21,7 @@ class Post extends Model {
         include: [
           {
             model: models.Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at',],
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
             include: {
               model: models.User,
               attributes: ['username']
@@ -42,23 +42,39 @@ Post.init(
       primaryKey: true,
       autoIncrement: true
     },
-    title: {
+    workout: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    post_url: {
+    breakfast: {
       type: DataTypes.STRING,
       allowNull: false,
      // validate: {
      //   isURL: true
      // }
     },
+    lunch: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    dinner: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    dessert: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    dailylog: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'id'      
-      }  
+        key: 'id'
+      }
     },
   },
   {

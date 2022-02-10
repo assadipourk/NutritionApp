@@ -5,17 +5,21 @@ const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-  //console.log(req.session);
-  //console.log('======================');
+  console.log(req.session);
+  console.log('======================');
   Post.findAll({
     where: {
       user_id: req.session.user_id
     },
     attributes: [
       'id',
-      'post_url',
-      'title',
+      'breakfast',
+      'workout',
       'created_at',
+      'lunch',
+      'dinner',
+      'dessert',
+      'dailylog',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
@@ -47,9 +51,13 @@ router.get('/edit/:id', withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: [
       'id',
-      'post_url',
-      'title',
+      'breakfast',
+      'workout',
       'created_at',
+      'lunch',
+      'dinner',
+      'dessert',
+      'dailylog',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [

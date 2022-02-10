@@ -1,16 +1,22 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="workout"]').value;
-  const post_url = document.querySelector('input[name="mealone"]').value;
+  const workout = document.querySelector('input[name="workout"]').value;
+  const breakfast = document.querySelector('input[name="breakfast"]').value;
+  const lunch = document.querySelector('input[name="lunch"]').value;
+  const dinner = document.querySelector('input[name="dinner"]').value;
+  const dessert = document.querySelector('input[name="dessert"]').value;
+  const dailylog = document.querySelector('#dailylog').value;
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
-      title,
-      post_url,
-   
-     
+      workout,
+      breakfast,
+      lunch,
+      dinner,
+      dessert,
+      dailylog,
     }),
     headers: {
       'Content-Type': 'application/json'
